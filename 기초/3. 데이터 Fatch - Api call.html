@@ -17,7 +17,36 @@
     const rootElement = document.getElementById("root")
 
     const App = () => {
-      return <p>zz</p>
+      const [data,setData] = React.useState(null)
+      const [error,setError] = React.useState("")
+
+      React.useEffect(()=>{
+        fetch('https://raw.githubusercontent.com/techoi/raw-data-api/main/simple-api.json')
+        .then(function(response) {
+          return response.json();
+        })
+        .then(function(myJson) {
+          setData(myJson.data);
+          console.log(myJson.data)
+        })
+        .catch((e) => {
+          setError(e)
+        }
+      )},[]);
+
+      if (data != null && error) {
+        return <p>{error}</p>
+      }
+
+      if (data == null) {
+        return <p>로 딩 중 . . .</p>
+      }
+
+      return <div>
+        <p>People</p>
+        <p>{JSON.stringify(data,null,2)}</p>
+        {data.age.map((person) => <p>{person}</p>)}
+      </div>
     }
 
     ReactDOM.render(<App />, rootElement);
