@@ -133,3 +133,18 @@ key props : key는 props로 넘기거나 받을 수 없다
 제어 컴포넌트 
 컴포넌트 자체에 밸류를 주고 그 밸류를 state로 관리
 
+대부분의 폼을 구현하는데 제어 컴포넌트를 사용하는 게 좋지만 폼데이터가 리액트 컴포넌트에서 다루어진다. 이러면 비효율적일 수 있는데
+대안으로 비제어 컴포넌트로 DOM자체에서 폼 데이터가 다뤄지도록 할 수 있음.
+핸들러를 사용하지 않고 ref를 사용한다.
+
+정리
+제어컴포넌트(controlledComponent)
+input의 value를 state로 관리하는 것
+
+다중입력 : 하나의 핸들러만 가지고 e.target.name,type,id 등.. 다양하게 사용 해서 if문으로 제어 가능
+
+비제어컴포넌트(UnControlledComponent)
+form element 자체의 내부 상태 활용
+
+defaultValue , ref
+기본값, value 확인

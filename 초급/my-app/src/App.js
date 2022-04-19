@@ -1,4 +1,6 @@
 import "./App.css";
+import ControlledComponent from "./components/2-10 Form/ControlledComponent";
+import UncontrolledComponent from "./components/2-10 Form/UncontrolledComponent";
 import Composition from "./components/2-4 Props/Composition";
 import Extraction from "./components/2-4 Props/Extraction/Extraction";
 import ClassComponent from "./components/2-5 State/ClassComponent";
@@ -11,7 +13,9 @@ import List from "./components/2-9 List/List";
 function App() {
   return (
     <div>
-      <List />
+      <ControlledComponent />
+      {/* <UncontrolledComponent /> */}
+      {/* <List /> */}
       {/* <Conditional /> */}
       {/* <Event /> */}
       {/* <ClassComponent2 /> */}
