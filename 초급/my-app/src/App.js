@@ -1,4 +1,5 @@
 import "./App.css";
+import ThankYou from "./components/3-6 CompositionExpansion/ThankYou";
 // import ControlledComponent from "./components/2-10 Form/ControlledComponent";
 // import UncontrolledComponent from "./components/2-10 Form/UncontrolledComponent";
 // import Composition from "./components/2-4 Props/Composition";
@@ -9,14 +10,18 @@ import "./App.css";
 // import Event from "./components/2-7 Event/Event";
 // import Conditional from "./components/2-8 Conditional Rendering/Conditional";
 // import List from "./components/2-9 List/List";
-import State from "./components/3-3 Hooks/State";
-import Reducer from "./components/3-3 Hooks/Reducer";
+// import State from "./components/3-3 Hooks/State";
+// import Reducer from "./components/3-3 Hooks/Reducer";
+// import WelcomeDialog from "./components/3-5 Composition/WelcomeDialog";
+// import Dialog from "./components/3-6 CompositionExpansion/Dialog";
 
 function App() {
   return (
     <div>
-      <State />
-      <Reducer />
+      <ThankYou />
+      {/* <WelcomeDialog /> */}
+      {/* <State /> */}
+      {/* <Reducer /> */}
       {/* <ControlledComponent /> */}
       {/* <UncontrolledComponent /> */}
       {/* <List /> */}
