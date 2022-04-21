@@ -1,5 +1,6 @@
 import "./App.css";
-import Example from "./components/3-11 Portals/Example";
+// import Component from "./components/3-14 PropTypes/Component";
+// import Example from "./components/3-11 Portals/Example";
 // import Example from "./components/3-10 Context/Example";
 // import Button from "./components/3-7 HOC/Button";
 // import Input from "./components/3-7 HOC/Input";
@@ -18,14 +19,15 @@ import Example from "./components/3-11 Portals/Example";
 // import Reducer from "./components/3-3 Hooks/Reducer";
 // import WelcomeDialog from "./components/3-5 Composition/WelcomeDialog";
 // import Dialog from "./components/3-6 CompositionExpansion/Dialog";
-// import Memo from "./components/3-8 Memoization/Memo";
+import Memo from "./components/3-8 Memoization/Memo";
 
 function App() {
   return (
     <div>
-      <Example />
+      {/* <Component /> */}
       {/* <Example /> */}
-      {/* <Memo /> */}
+      {/* <Example /> */}
+      <Memo />
       {/* <Button /> */}
       {/* <Input /> */}
       {/* <ThankYou /> */}

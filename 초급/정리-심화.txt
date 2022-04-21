@@ -18,6 +18,7 @@ Hook의 사용 규칙
 Hooks 등장 -> Class의 단점 보완 / 재사용성 강화
 사용규칙 -> 최상위에서 호출, 함수형 컴포넌트에서만 쓴다
 Class의 State -> 그냥 이런게 있구나 정도만 알고 Hooks를 쓰자
+class 특징 - this.state로 관장 컨스트럭터에서 초기화 쓰고싶은 함수를 .bind해줘야 함
 
 
 2. Hooks 2
@@ -26,10 +27,12 @@ useEffect
 데이터 fetch,구독,DOM수정등 사이드 이펙트를 다룰때 쓴다.
 
 클린 업
-구독과 구독 해지,셋인터벌,클리어 등을 한 공간에서 할 수 있게 함
+구독과 구독 해지, 셋인터벌 클리어 등을 한 공간에서 할 수 있게 함
+클래스에선 didmount에서 구독 willunmount에서 구독해지 이런식이었는데 유즈이펙트를 사용하면 한번에 가능
 
 dependency array 
 의존성 배열을 줘서 의도대로 실행 가능
+
 
 3. Hooks 3
 
@@ -62,6 +65,7 @@ CustomHook -> 반복되는 Hooks를 하나로 묶어줄 수 있다.
 
 한국어 공식문서는 접근성은 좋지만 저자의 의도를 놓치거나 하는 경우가 있을 수 있음
 원어로 보는것이 중요하다(번역기를 사용하더라도)
+
 
 5. Composition(합성) 과 Inheritance(상속)
 
@@ -105,17 +109,62 @@ props를 인접 컴포넌트가 아닌 컴포넌트로 공유하는 방법은 �
 
 컴포넌트 트리 제약 -> Props drilling의 한계를 해소
 재사용성↓ -> Context로 감싸여야만 온전한 동작을 하기 때문에 재사용하기 좀 어렵다
-Api 구조 -> createContext / Provider(공급) / Consumer(소비)
+Api 구조 -> 
+만들기 createContext 여기서 정해주는 값을 디폴트 밸류인데 이 값은 Provider에서 값을 정해서 내려주지 않을 때 쓰일 값임 
+/ 자식들에게 변경 알리기 : Provider(공급), Provider밖에 있는 애들은 Context의 변경을 알 수 없음 위 둘은 사실상 쌍으로 움직인다
+/ 값을 받아 컴포넌트를 그리는 : Consumer(소비)
 useContext -> Consumer 대체
 
 9. Portals
 
 Dom계층 구조 바깥에 있는 Dom노드로 자식을 렌더링하는 가장 좋은 방법
 modal같은 것에 주로 쓰임
+root와 형제인 portal div를 만들고 거기에 넣어준주고 createPortal이라는 것으로 새로운 칠드런으로 그곳에 증적시킬 수 있다.
+
 createPortal -> react-dom을 객체분해해서 import한다. 부모 컴포넌트의 Dom트리로 부터 벗어날 수 있음(기본적으로 root가 최상위 부모이다)
-이벤트 -> portal에 렌더 되더라도, 이벤트는 트리로 전파함
+이벤트 -> portal에 렌더 되더라도, 이벤트는 트리로 전파함(버블링으로 캐치 가능)
 
 10. render props
 
 컴포넌트를 재사용하기 위한 방법 중 하나 (컴포지션, HOC, 렌더 프랍스 ...)
+render라는 이름의 props이다.
 
+render props -> render라는 props로 무엇을 렌더링할 지 알려주는 함수
+패턴일 뿐, 꼭 render일 필요가 없고 children도 되고 뭐든 된다
+PureComponent -> props, state를 얕은 비교로 비교하고 바뀌었으면 리렌더 하고 아무것도 안 바뀌었으면 아무것도 하지 않는 판단을 하는 컴포넌트. 성능을 최적화 시킴(함수로 props를 전달하면 어차피 비교를 계속 해서 의미가 없으므로 render props와는 잘 맞지 않음)
+
+
+11. PropTypes
+
+props의 타입을 확인하기 위한 도구(Flow, TypeScript같은 정적 타이핑 도구)
+컴포넌트 바깥에서 타입스크립트처럼 타입을 미리 정해준다
+
+개발모드에서만 동작한다 -> 유효하지 않은 prop에 대한 경고를 띄워줌
+커스터마이징 가능 -> RegExp등으로 사용자 정의가능
+children 제한 -> 원래 제약 없던 자식의 개수도 제한 가능하다.
+
+12. Reconciliation(재조정)
+
+UI갱신에 대한 React의 접근법
+
+루트로 부터 비교함
+트리를 파괴 -> 부모가 바뀌었다면 트리를 버림
+Keys -> 자식 재귀 처리시 효율성 확보
+
+Virtual DOM = 실제 DOM과 동기화할 가상 표현
+가상의 표현을 메모리에 저장하고 실제 DOM과 동기화 하는 과정이 === 재조정 이다
+React Fiber
+스택 리콘실러를 대체한 재조정 엔진
+
+
+13. React Dev Tool
+
+개발자 도구 확장 -> React에서 확인하고 싶었던 것들을 한군데 모아서 보여줌
+성능 측정 -> Profiler탭
+
+ex. 리액트로 사고하기
+
+1. 컴포넌트를 나눈다
+2. 데이터를 가져온다
+3. 상태를 관리한다
+4. 각각 기능을 구현하고 디자인을 입힌다
