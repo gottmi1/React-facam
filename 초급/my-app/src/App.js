@@ -1,5 +1,6 @@
 import "./App.css";
-import Example from "./components/3-10 Context/Example";
+import Example from "./components/3-11 Portals/Example";
+// import Example from "./components/3-10 Context/Example";
 // import Button from "./components/3-7 HOC/Button";
 // import Input from "./components/3-7 HOC/Input";
 // import ThankYou from "./components/3-6 CompositionExpansion/ThankYou";
@@ -23,6 +24,7 @@ function App() {
   return (
     <div>
       <Example />
+      {/* <Example /> */}
       {/* <Memo /> */}
       {/* <Button /> */}
       {/* <Input /> */}

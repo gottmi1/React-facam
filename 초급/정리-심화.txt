@@ -108,6 +108,14 @@ props를 인접 컴포넌트가 아닌 컴포넌트로 공유하는 방법은 �
 Api 구조 -> createContext / Provider(공급) / Consumer(소비)
 useContext -> Consumer 대체
 
-9. Protals
+9. Portals
 
 Dom계층 구조 바깥에 있는 Dom노드로 자식을 렌더링하는 가장 좋은 방법
+modal같은 것에 주로 쓰임
+createPortal -> react-dom을 객체분해해서 import한다. 부모 컴포넌트의 Dom트리로 부터 벗어날 수 있음(기본적으로 root가 최상위 부모이다)
+이벤트 -> portal에 렌더 되더라도, 이벤트는 트리로 전파함
+
+10. render props
+
+컴포넌트를 재사용하기 위한 방법 중 하나 (컴포지션, HOC, 렌더 프랍스 ...)
+
