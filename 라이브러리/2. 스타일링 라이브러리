@@ -1,0 +1,27 @@
+1111111111 CSS in JS
+
+js에서 css를 다루고싶다는 개념
+
+대표 라이브러리로 스타일드 컴포넌트,이모션, sass같은 게 있다
+
+CSS in JS -> css의 문제점을 해소(큰 어플일 때)
+해결책 -> 스타일을 style태그로 분리함. 이름도 유니크하게 지정하고 오타문제도 없다.
+사용법(템플릿 리터럴) -> styled.{원하는 태그 h1,div,section 등}``
+styled(기존 컴포넌트) -> 확장 가능
+
+1. Styled-component
+
+1)& 선택자 
+가상 엘리먼트/ 가상 선택자
+&은 자기 자신을 뜻한다.
+
+& ~ & 일반 형제 결합자. 같은 부모를 공유하면서 첫번째 요소를 뒤따르는 모든 것
+& + & 인접 형제 결합자. & + & 여러개 있다면 첫번째 Thing에 인접해있는 모든 Thing
+&.something <Thing> 안에 .shomething 클래스를 가진 애
+.something-else &  ".something-else" 클래스 안에 있는 <Thing>
+
+2) 글로벌 스타일 -> 전역 스타일 관리
+
+attrs -> 어트리부트를 줘서 props로 관리하기 편하게 할 수 있음
+
+3) KeyFrames , ThemeProvider -> 애니메이션, 테마
