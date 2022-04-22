@@ -9,6 +9,11 @@ CSS in JS -> css의 문제점을 해소(큰 어플일 때)
 사용법(템플릿 리터럴) -> styled.{원하는 태그 h1,div,section 등}``
 styled(기존 컴포넌트) -> 확장 가능
 
+쉽게 얘기해서 컴포넌트를 만들듯이 스타일을 만들 수도 있다. 아무것도 없는 상태에서 css props를 줘서 만들 수도 있고 여러가지 방법으로 스타일링이 가능하다
+
+
+nesting -> & .name 처럼 어떤 컴포넌트 안에 name클래스를 가진 요소에 스타일을 주는 기능
+
 1. Styled-component
 
 1)& 선택자 
@@ -52,13 +57,61 @@ composition으로 css 안에서 css 사용 가능
 Fallbacks -> 브라우저가 지원 안하는 기능일 경우를 대비해서 먼저 기본으로 깔릴 걸 설정가능
 
 
-2.5 스타일드 컴포넌트와 이모션
+2-5. 스타일드 컴포넌트와 이모션
 
 두 라이브러리는 첨에는 조금 달랐지만 이젠 거의 유사하다.
 이모션이 조금 더 작고 빠르다는 의견이 있다.
 
 
+3. Sass
+
+위의 두 라이브러리는 css in js를 위해 나온 라이브러리지만 얘는 다름
+css를 업그레이드 한 거라고 보면 된다 하나의 언어임
+
+css의 preprocessor = 전처리기 이다
+
+react를 babel로 쓰면 결과가 js로 나오는 것처럼
+sass로 쓰면 결과가 css로 나오는 것
+
+nesting이 보기 편하다
+
+1) Variables
+
+$font-stack: Helvetica, sans-serif;
+$primary-color: #f00;
+
+.font {
+  font: 100% $font-stack;
+  color: $primary-color;
+}
+이런식으로 스타일에 주고싶은 값을 변수로 저장가능
+
+2) Nesting
+
+css에서 ul {} , ui > li {} , ul > li > a {} 이런식으로 귀찮게 따로 줘야하는데 ul{li{a{} } } 식으로 효율적으로 네스팅 가능
+
+3) Modules
+_abc.scss 라는 파일을 만들고
+다른 scss 파일에서 @use 'asb'; 하면 abc.scss안에 있는 애들도 가져와서 쓸 수 있음
+
+4) Mixins 
+
+@mixin theme($theme: DarkGray) {
+  background: $theme;
+  box-shadow: 0 0 1px rgba($theme, .25);
+  color: #fff;
+}
+
+.info {
+  @include theme;
+}
+.alert {
+  @include theme($theme: DarkRed);
+}
+
+@mixin 으로 미리 틀을 정해놓고 $변수 로 값을 받아 특정한 값만 받은 값으로 변경된 클래스를 @include 로 찍어낼 수 있다
 
 
+어떤 라이브러리를 쓸 것인가?
 
-쉽게 얘기해서 컴포넌트를 만들듯이 스타일을 만들 수도 있다. 아무것도 없는 상태에서 css props를 줘서 만들 수도 있고 여러가지 방법으로 스타일링이 가능하다
+상황에 맞게.. 현재 개발 편의성을 생각하면 css in js가 좋을 것 같다
