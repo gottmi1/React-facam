@@ -126,6 +126,7 @@ color: red; // <Thing> & = 자기 자신을 의미
       background-color: pink;
       }
       `
+      // 스타일드 컴포넌트에서 createGlobalStyle를 따로 import시켜줘야 함. 전체 영역에 대한 css를 줄 수 있다.
 
       export default function StyledComponentExample() {
       const [theme , setTheme] = useState(defaulttheme)

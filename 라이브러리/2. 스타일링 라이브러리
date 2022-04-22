@@ -25,3 +25,40 @@ styled(기존 컴포넌트) -> 확장 가능
 attrs -> 어트리부트를 줘서 props로 관리하기 편하게 할 수 있음
 
 3) KeyFrames , ThemeProvider -> 애니메이션, 테마
+
+
+2. emotion
+
+리액트용 npm i @emotion/react
+크리에이트 리액트 앱으로 만든 프로젝트에선 jsx를 import할 필요는 없지만
+/** @jsxImportSource @emotion/react */를 써줘야 함
+
+css의 props는 style props와 비슷하다
+
+css의 Props
+오브젝트 타입 : css= {{fontSize : 12, zIndex : 200}} 카멜케이스, px이들어가야 할 곳에는 알아서 들어가줌
+문자열 타입 : css ={css`font-size : 12px; z-index : 200;`} css쓰듯이 쓰면 됨. 
+
+styled 컴포넌트와 유사한 + @ 기능을 제공해준다
+
+as props
+as="a" 이런식으로 props에 as를 제공해주면 동작방식이 as안에 든 걸로 바뀜
+
+정리 
+리액트에 특화된 라이브러리 @emotion/react
+css props는 jsx를 대체한다
+styled component + @ 의 기능을 함
+composition으로 css 안에서 css 사용 가능
+Fallbacks -> 브라우저가 지원 안하는 기능일 경우를 대비해서 먼저 기본으로 깔릴 걸 설정가능
+
+
+2.5 스타일드 컴포넌트와 이모션
+
+두 라이브러리는 첨에는 조금 달랐지만 이젠 거의 유사하다.
+이모션이 조금 더 작고 빠르다는 의견이 있다.
+
+
+
+
+
+쉽게 얘기해서 컴포넌트를 만들듯이 스타일을 만들 수도 있다. 아무것도 없는 상태에서 css props를 줘서 만들 수도 있고 여러가지 방법으로 스타일링이 가능하다
