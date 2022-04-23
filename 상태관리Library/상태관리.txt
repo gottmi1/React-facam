@@ -1,0 +1,35 @@
+1. redux
+
+리액트는 flux 방식 -> 단방향이다
+간단한 상태관리는 useState를 사용해도 괜찮은데 점점 멀티플해지면 어려움이 있을 수 있음
+
+action이란 게있고 거기 안엔 {type, payload}가 있음
+reudcer(state,action) 으로 들어온 action과 state를 합쳐 newState를 만들어줌
+store = state 저장소
+dispatch를 통해서만 store를 업데이트 할 수 있음
+selector는 store의 특정 state값을 꺼내오는 역할
+
+initial state
+
+store를 만들 때 초기값을 세팅해주는데 이때 reducer 함수도 함께 만들어줌
+그 후 store가 root reducer를 한 번 불러서 기존에 있던 initial값을 set함
+dispatch가 한 번도 일어나지 않았을 때는 그 초기값을 세팅한다
+
+update
+어떤 일이 일어나면 dispatch action이 일어남
+store가 이전 state와 받은 action을 합쳐서 새로운 state를 만들고 저장함
+그 후 업데이트 됐다는 걸 다른 컴포넌트들이 인지하고(selector로) UI를 업데이트 해야하는건지 아닌지 체크
+필요하면 업데이트함
+
+정리
+
+redux는 전역상태관리를 위한 tool 지역상태관리(useState)와는 좀 다름. 
+- 복잡해지거나 컴포넌트 tree밖에서 관리하기 위해
+
+단방향 데이터흐름 - flux
+
+구성요소 - store / reducer / action / selector
+
+RTK(툴킷) -> redux 라이브러리들의 조합
+툴킷이 없었을 때 -> immer /saga /thunk 등 다른걸 썼는데 복잡함
+리덕스 데브툴 -> 크롬 확장프로그램
