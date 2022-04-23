@@ -1,0 +1,6 @@
+프레이머
+
+Framer -> 디자인과 프론트엔드가 협업할 수 있는 하나의 툴
+Motion -> Animation 기능이 들어간 Component. <motion.div props />
+Variants -> 값을 자녀들에게 내려줄 수 있었고 동작이 서로 연동 되도로갛ㄹ 수 있었음
+제스쳐, 모션 밸류 -> 편의 기능을 제공함
