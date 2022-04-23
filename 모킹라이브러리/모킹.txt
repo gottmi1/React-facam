@@ -1,0 +1,16 @@
+
+모킹(Mocking)이란?
+
+모의데이터(Mock)를 만들어서 활용하는 방식
+일반적으로 data fetch를 해야하는 경우 통신을 통해 응답을 내려주는 서버가 있어야하기 때문에 함
+
+
+msw = 모킹 서비스 워커
+네트워크 레벨에서 interception을 함
+
+정리
+Mocking -> 모의데이터 활용
+Browser -> Service worker 활용
+REST API + GraphQL -> 모두 모킹이 가능함
+mock -> handler , browser 만 있어도 동작한다
+public MSW.js파일 만들기 ->npx msw init public/
