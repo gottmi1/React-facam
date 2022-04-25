@@ -1,0 +1,44 @@
+Hooks 이전 React
+컴포넌트 내부에 상태가 있을 때
+class
+컴포넌트 내부에 상태가 없을때
+라이프 사이클을 사용해야 한다면?
+class
+라이프 사이클이 상관 없다면?
+fucntion
+
+Hooks 이후
+
+그냥 functional. hook을 통해서 다 가능하다
+
+Props와 State
+
+props = 컴포넌트외부에서 컴포넌트로 넣어주는 데이터
+state = 컴포넌트 내부에서 변경할 수 있는 상태 값
+둘중 하나만 변경되면 리랜더링됨
+
+npm start -> 개발 모드로 local에 띄움(작업할 때) develope sever를 실행
+
+npm run build -> 작업 끝나고 배포할 때 프로덕션 모드로 빌드 프로젝트 안에 build라는 폴더가 생김
+creating on optimized production build
+
+npm i serve -g
+serve라는 패키지를 전역으로 설치
+serve -s build
+serve 명령어를 -s 옵션으로 build폴더를 지정하여 실행
+-s는 싱글페이지애플리케이션의 약자로, 없는 주소라면 모두 index.html을 응답하도록 함
+
+
+npm test -> Jest를 기반으로 한 테스트 러너
+
+npm run eject -> CRA 프로젝트를 꺼내서 CRA의 관리를 받지 않는다 cra내에서 해결되지 않은 설정을 추가해야할 때 설정 (고수용) 
+
+HOC -> 고차함수 컴포넌트를 인자로 받아 새 컴포넌트를 리턴함
+
+props -> 컴포넌트 -> UI
+컴포넌트 -> HOC -> 새로운 컴포넌트
+
+보통 with가 붙은 함수는 HOC인 경우가 많다
+
+HOOK
+
