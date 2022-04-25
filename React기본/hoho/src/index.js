@@ -1,13 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import PersonContext from "./context/PersonContext";
+const persons = [
+  { id: 0, name: "jinwon", age: 12 },
+  { id: 1, name: "jintwo", age: 32 },
+];
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <PersonContext.Provider value={persons}>
+      <App />
+    </PersonContext.Provider>
   </React.StrictMode>
 );
 
