@@ -1,0 +1,43 @@
+리액트의 프레임워크
+라이브러리를 표방한 react의 장점은 살리되 다양한 편의기능들을 추가함.
+
+SSR VS CSR
+
+SSR
+
+클라이언트로 전달된 HTML 파일 내용의 (일부를) 미리 그려서 내려주는 것
+
+클라이언트의 랜더링 속도를 빠르게 하여 사용자 체감 속도를 증진 시킨다.
+검색 엔진이 JS를 실행하지 않고 크롤링 가능 SEO(검색엔진 최적화)
+
+그외 주요기능 들
+- 각종 Optimization
+- hot code relading
+
+create-next-app 과 create-react-app
+
+CSR만 동작하는 경우와 그렇지 않은 경우 비교
+개발자도구 -> 자바스크립트 사용 안 하기
+
+
+정리 1
+next.js -> react의 프레임워크
+vercel -> frontend deploy platform
+SSR vs CSR -> 보여질 화면을 그리는 주체가 클라이언트(브라우저)인가 서버인가 SSR의 경우 서버에서 뭐라도 미리 그려줌
+SSR 장점 -> SEO / 렌더속도↑ / 기타
+
+
+CSR -> 디스애이블 자바스크립트 안 쓰면 모양이 다 깨져버림
+SSR -> 디스애이블 자바스크립트 안 해도 모양을 어느정도 유지함
+SSR에서 사용하면 API를 호출하고 그 데이터를 props로 전달해주면 페이지에 미리 그려서 브라우저에 빠르게 전달함
+
+commerce 
+cart,seach 등 기본 키트가 오픈소스로 이미 만들어져 있다.
+
+SSG ( Static Generation )
+
+CSR SSR -> Next.js로 둘 다 가능함
+- 넥스트에서 SSR을 제공하는 기능을 안 쓰면 리액트에서 쓰듯 CSR이 될것.
+SSG vs SSR -> getStaticProps vs getServerSideProps 
+static은 npm run build 되는 타이밍에 props를 미리 만들어서 전달
+SSR은 서버에 요청이 있을 때마다 
